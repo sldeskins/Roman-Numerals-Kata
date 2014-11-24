@@ -32,11 +32,13 @@ namespace ArabicRomaNumerialCalculatorClasses
             string hasLowercaseRomanNumeralsMeaasge = "Lower case roman numerals are not valid.";
 
 
-            bool hasMoreThanThreeRomanNumeralsRepeats = false;
+            bool hasMoreThanThreeRomanNumeralsRepeatsIsOk = true;
             string hasMoreThanThreeRomanNumeralsRepeatsMessage = "'I', 'X', 'C', and 'M' can be repeated at most 3 times in a row.";
-            
 
-         
+            bool canNeverBeRepeatedIsOk = true;
+            string canNeverBeRepeatedMessage = "'V', 'L', and 'D' can never be repeated.";
+
+
             List<String> InValidCharacters = new List<string>();
 
             List<char> testRomanCharList = testRomanCharacterString.ToList();
@@ -55,15 +57,29 @@ namespace ArabicRomaNumerialCalculatorClasses
 
             });
 
-            string pattern = @"([I]{4,}|[X]{4,}|[C]{4,}|[M]{4,})+";
-            Regex regex = new Regex(pattern);
-            if (regex.IsMatch(testRomanCharacterString))
+         
+
+
+            if (isValidRomanNumeralCharacters)
                 {
-                hasMoreThanThreeRomanNumeralsRepeats = true;
+                string patternCanBeRepeatedAtMostThreeTimes = @"([I]{4,}|[X]{4,}|[C]{4,}|[M]{4,})+";
+                Regex regex = new Regex(patternCanBeRepeatedAtMostThreeTimes);
+                if (regex.IsMatch(testRomanCharacterString))
+                    {
+                    hasMoreThanThreeRomanNumeralsRepeatsIsOk = false;
+                    }
+
+                string patternCanNeverBeRepeated = @"([V]{2,}|[L]{2,}|[D]{2,})+";
+                regex = new Regex(patternCanNeverBeRepeated);
+                if (regex.IsMatch(testRomanCharacterString))
+                    {
+                    canNeverBeRepeatedIsOk = false;
+                    }
+
                 }
 
 
-            isValid = isValidRomanNumeralCharacters && !hasMoreThanThreeRomanNumeralsRepeats;
+            isValid = isValidRomanNumeralCharacters && hasMoreThanThreeRomanNumeralsRepeatsIsOk && canNeverBeRepeatedIsOk;
             if (!isValid)
                 {
                 List<string> messageList = new List<string>();
@@ -75,9 +91,13 @@ namespace ArabicRomaNumerialCalculatorClasses
                     {
                     messageList.Add(hasLowercaseRomanNumeralsMeaasge);
                     }
-                if (hasMoreThanThreeRomanNumeralsRepeats)
+                if (!hasMoreThanThreeRomanNumeralsRepeatsIsOk)
                     {
                     messageList.Add(hasMoreThanThreeRomanNumeralsRepeatsMessage);
+                    }
+                if (!canNeverBeRepeatedIsOk)
+                    {
+                    messageList.Add(canNeverBeRepeatedMessage);
                     }
 
                 message = string.Join(" ", messageList);

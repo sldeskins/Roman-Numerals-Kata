@@ -57,9 +57,9 @@ new { testInput = "VXV", expectedIsValid = true, expectedMessage = "ok" },
 new { testInput = "DXD", expectedIsValid = true, expectedMessage = "ok" },
 new { testInput = "LXL", expectedIsValid = true, expectedMessage = "ok" },
 
-new { testInput = "XLL", expectedIsValid = false, expectedMessage = "sd" },
-new { testInput = "XVV", expectedIsValid = false, expectedMessage = "sd" },
-new { testInput = "XDD", expectedIsValid = false, expectedMessage = "sd" },
+new { testInput = "XLL", expectedIsValid = false, expectedMessage = "'V', 'L', and 'D' can never be repeated." },
+new { testInput = "XVVX", expectedIsValid = false, expectedMessage = "'V', 'L', and 'D' can never be repeated." },
+new { testInput = "DDX", expectedIsValid = false, expectedMessage = "'V', 'L', and 'D' can never be repeated." },
             };
 
 
