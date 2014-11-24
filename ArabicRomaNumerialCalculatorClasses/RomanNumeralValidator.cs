@@ -9,13 +9,13 @@ using System.Text.RegularExpressions;
 namespace ArabicRomaNumerialCalculatorClasses
     {
 
-    public class Class1
+    public class RomanNumeralValidator
         {
         protected String message = null;
         public List<char> VALID_ROMMAN_LETTERS = null;
         protected List<char> VALID_ROMMAN_LETTERS_LOWERCASE = null;
 
-        public Class1 ()
+        public RomanNumeralValidator ()
             {
 
             VALID_ROMMAN_LETTERS = new List<char>() { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
@@ -34,9 +34,9 @@ namespace ArabicRomaNumerialCalculatorClasses
 
             bool hasMoreThanThreeRomanNumeralsRepeats = false;
             string hasMoreThanThreeRomanNumeralsRepeatsMessage = "'I', 'X', 'C', and 'M' can be repeated at most 3 times in a row.";
+            
 
-
-            message = "";
+         
             List<String> InValidCharacters = new List<string>();
 
             List<char> testRomanCharList = testRomanCharacterString.ToList();

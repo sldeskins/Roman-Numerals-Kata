@@ -1,9 +1,10 @@
-﻿using System;
+﻿
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ArabicRomaNumerialCalculatorClasses;
 using System.Collections.Generic;
 
-namespace UnitTestProject1
+namespace ArabicRomaNumerialCalculatorClassesTests
     {
     [TestClass]
     public class UnitTest1
@@ -50,10 +51,19 @@ new { testInput = "MMMMM", expectedIsValid = false, expectedMessage = "'I', 'X',
 new { testInput = "CCCCCCCC", expectedIsValid = false, expectedMessage = "'I', 'X', 'C', and 'M' can be repeated at most 3 times in a row."},
 new { testInput = "XXXXXX", expectedIsValid = false, expectedMessage = "'I', 'X', 'C', and 'M' can be repeated at most 3 times in a row."},
 
+//invalid can not be repeated more than three time     
+//'V', 'L', and 'D' can never be repeated. 
+new { testInput = "VXV", expectedIsValid = true, expectedMessage = "ok" },
+new { testInput = "DXD", expectedIsValid = true, expectedMessage = "ok" },
+new { testInput = "LXL", expectedIsValid = true, expectedMessage = "ok" },
+
+new { testInput = "XLL", expectedIsValid = false, expectedMessage = "sd" },
+new { testInput = "XVV", expectedIsValid = false, expectedMessage = "sd" },
+new { testInput = "XDD", expectedIsValid = false, expectedMessage = "sd" },
             };
 
 
-            Class1 testClass = new Class1();
+            RomanNumeralValidator testClass = new RomanNumeralValidator();
 
             foreach (var testData in testDataCollection)
                 {
