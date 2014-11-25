@@ -113,17 +113,7 @@ namespace ArabicRomaNumerialCalculatorClasses
             return message;
             }
 
-        public bool ValidateRoleForRomanToArabicConverter ( string userRole )
-            {
-            if (userRole == "customer")
-                {
-                return true;
-                }
-            else
-                {
-                return false;
-                }
-            }
+
         }
 
     }

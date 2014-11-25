@@ -75,23 +75,6 @@ namespace ArabicRomaNumerialCalculatorClassesTests
                 Assert.AreEqual(testData.expectedMessage, message, testData.testInput);
                 }
             }
-        [TestMethod]
-        public void Test_ValidateRoleForRomanToArabicConverter ()
-            {
-            RomanNumeralValidator testClass = new RomanNumeralValidator();
-            string userRole = "Not a valid Role";
-            bool result = testClass.ValidateRoleForRomanToArabicConverter(userRole);
-            Assert.IsFalse(result);
-           
-            // 
-             userRole = "game designer";
-             result = testClass.ValidateRoleForRomanToArabicConverter(userRole);
-            Assert.IsFalse(result);
 
-            // 
-            userRole = "customer";
-            result = testClass.ValidateRoleForRomanToArabicConverter(userRole);
-            Assert.IsTrue(result);
-            }
         }
     }
