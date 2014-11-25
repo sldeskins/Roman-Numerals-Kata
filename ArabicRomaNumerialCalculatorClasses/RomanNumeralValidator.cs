@@ -12,7 +12,7 @@ namespace ArabicRomaNumerialCalculatorClasses
     public class RomanNumeralValidator
         {
         protected String message = null;
-        public List<char> VALID_ROMMAN_LETTERS = null;
+        protected List<char> VALID_ROMMAN_LETTERS = null;
         protected List<char> VALID_ROMMAN_LETTERS_LOWERCASE = null;
 
         public RomanNumeralValidator ()
@@ -56,8 +56,6 @@ namespace ArabicRomaNumerialCalculatorClasses
                     }
 
             });
-
-         
 
 
             if (isValidRomanNumeralCharacters)
@@ -113,6 +111,18 @@ namespace ArabicRomaNumerialCalculatorClasses
         public string getCommandMessage ()
             {
             return message;
+            }
+
+        public bool ValidateRoleForRomanToArabicConverter ( string userRole )
+            {
+            if (userRole == "customer")
+                {
+                return true;
+                }
+            else
+                {
+                return false;
+                }
             }
         }
 

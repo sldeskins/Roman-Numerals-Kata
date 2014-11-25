@@ -38,6 +38,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -54,12 +57,18 @@
   <ItemGroup>
     <Compile Include="RomanNumeralValidatorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ArabicToRomanNumberConverterTests.cs" />
+    <Compile Include="RomanToArabicConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArabicRomaNumerialCalculatorClasses\ArabicRomaNumerialCalculatorClasses.csproj">
       <Project>{6c4ba8cc-0733-4d06-be1b-c3e7b5375cb6}</Project>
       <Name>ArabicRomaNumerialCalculatorClasses</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
